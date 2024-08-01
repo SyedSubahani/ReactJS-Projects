@@ -56,29 +56,29 @@ const handleExSpaceClick = ()=> {
     const [text, setText] = useState("");
   return (
     <>
-    <div className="container" style = {{color: props.mode === "dark" ? 'white': "black"}}>
-    <div className="mb-3">
-        <h3>{props.Heading}</h3>
+    <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
+     <h1 className='mb-4'>{props.Heading}</h1>
+    <div className="mb-3">        
         <label htmlFor="mybox" className="form-label"></label>
         <textarea className="form-control" id="myBox" rows="8" value = {text} onChange={handleOnChange}
-        style={{backgroundColor: props.mode === "dark" ? "#042743": "white", color: props.mode === "dark" ? "white": "black"}}
+        style={{backgroundColor: props.mode === "dark" ? "#13466e": "white", color: props.mode === "dark" ? "white": "#042743"}}
         ></textarea>
     </div>
-    <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Upper Case</button>
-    <button className="btn btn-success mx-1" onClick={handleLoClick}>Convert to Lower Case</button>
-    <button className="btn btn-secondary mx-1" onClick={handleClearClick}>Clear Text</button>
-    <button className="btn btn-info mx-1" onClick={handleReadClick} >Read Text</button>
-    <button className="btn btn-warning mx-1" onClick={handleInverseClick} >Inverse Text</button>
-    <button className="btn btn-info mx-1" onClick={handleCopyClick} >Copy Text</button>
-    <button className="btn btn-warning mx-1" onClick={handleExSpaceClick} >Remove Extra Space</button>
+    <button className="btn btn-primary mx-1" onClick={handleUpClick} disabled={text.length===0}>Convert to Upper Case</button>
+    <button className="btn btn-success mx-1" onClick={handleLoClick} disabled={text.length===0}>Convert to Lower Case</button>
+    <button className="btn btn-secondary mx-1" onClick={handleClearClick} disabled={text.length===0}>Clear Text</button>
+    <button className="btn btn-info mx-1" onClick={handleReadClick} disabled={text.length===0}>Read Text</button>
+    <button className="btn btn-warning mx-1" onClick={handleInverseClick} disabled={text.length===0}>Inverse Text</button>
+    <button className="btn btn-info mx-1" onClick={handleCopyClick} disabled={text.length===0}>Copy Text</button>
+    <button className="btn btn-warning mx-1" onClick={handleExSpaceClick} disabled={text.length===0}>Remove Extra Space</button>
 </div>
-<div className="container my-3" style = {{color:props.mode === "dark" ? "white": "black"}}>
-  <h2>Text Summary</h2>
-  <p>You have entered <b>{text.split(" ").length}</b> words and <b>{text.length}</b> charecters</p>
-  <p>{0.008 * text.split(" ").length} mins read</p>
-  <h2>Text Preview</h2>
-  <p>{text.length > 0 ? text:"Enter the text to view preview"}</p>
-</div>
+<div className="container my-3" style={{color: props.mode==='dark'?'white':'#042743'}}>
+            <h2>Your text summary</h2>
+            <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+            <p>{0.008 *  text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes read</p>
+            <h2>Preview</h2>
+            <p>{text.length>0?text:"Nothing to preview!"}</p>
+        </div>
 </>
   )
 }

@@ -42,16 +42,16 @@ function App() {
   return (
    <>
   <Router>
-  <Navbar navTitle = "TextUtils" mode = {mode} toggleMode = {toggleMode}/>
+  <Navbar navTitle = "TextUtils" mode = {mode} toggleMode = {toggleMode} key={new Date()}/>
   <Alert alert={alert}/>
   
   <div className="container my-3">
    {/* <TextForm Heading = "Enter the Text here" mode = {mode} showAlert = {showAlert}/>
     <About/>*/}
       <Routes>
-          <Route path="/about" element={<About/>} />          
+          <Route path="/about" element={<About mode = {mode}/>} />          
           <Route path="/" element = {
-          <TextForm Heading = "Enter the Text here" mode = {mode} showAlert = {showAlert}/> 
+          <TextForm Heading = "Try TextUtils - word counter, character counter, remove extra spaces" mode = {mode} showAlert = {showAlert}/> 
           }
           />
         </Routes>
