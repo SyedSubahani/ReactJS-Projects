@@ -40,9 +40,11 @@ const handleInverseClick = () => {
 }
 
 const handleCopyClick = ()=> {
-  let newText = document.getElementById("myBox");
-  newText.select();
-  navigator.clipboard.writeText(newText.value);
+  //let newText = document.getElementById("myBox");
+  //newText.select();
+  //navigator.clipboard.writeText(newText.value);
+  navigator.clipboard.writeText(text); 
+  props.showAlert("Copied to Clipboard!", "success");
 }
 
 const handleExSpaceClick = ()=> {
