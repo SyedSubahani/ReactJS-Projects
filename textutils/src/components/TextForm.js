@@ -49,7 +49,8 @@ const handleCopyClick = ()=> {
 
 const handleExSpaceClick = ()=> {
   let newText = text.split(/[ ]+/);
-  setText(newText.join(" "))
+  setText(newText.join(" "));
+  props.showAlert("Extra spaces removed!", "success");
 }
    const handleOnChange = (event)=> {
     //console.log("Text on change");
